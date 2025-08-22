@@ -188,6 +188,84 @@ width: 100%;}
 
 </div>
 
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6fb;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h1 {
+      color: #333;
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 16px;
+      color: #555;
+      margin-bottom: 20px;
+    }
+    .map-frame {
+      width: 100%;
+      height: 450px;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .btn {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+    .btn:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Tara Ma Jatri Nibas</h1>
+    <p>নীচে আমাদের লোকেশন দেখানো হলো। আপনি চাইলে সরাসরি Google Maps এ খুলে রাস্তাও দেখতে পারবেন।</p>
+
+    <!-- Embedded Map -->
+    <div class="map-frame">
+      <iframe 
+        src="https://www.google.com/maps?q=Tara%20Maa%20Yatri%20Niwas,%20Kalinagar,%20West%20Bengal%20743347&z=15&output=embed"
+
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </div>
+
+    <!-- Directions Button -->
+    <a class="btn" href="https://maps.app.goo.gl/Vz7PWjWKE6Mp6np8A?g_st=awb" target="_blank">
+      🚗 Get Directions (Google Maps)
+    </a>
+  </div>
+
+ 
+
+
+
+
 
 
 
@@ -232,6 +310,13 @@ width: 100%;}
    </div> 
 
 </div>
+
+
+
+
+
+
+
 
 
          
@@ -381,118 +466,9 @@ function scrollToTop() {
 label{user-select:none}
 
   </style>
-</head>
-<body>
-  <!-- Trigger (for demo/testing) -->
-  <button class="btn btn-ghost" id="openDemo" style="position:fixed;top:12px;left:12px">Open Notice (demo)</button>
 
-  <!-- Toast (optional) -->
-  <div class="notice-toast" id="noticeToast" aria-live="polite"></div>
-  
-  <!-- Overlay + Modal -->
-  <div class="notice-overlay" id="noticeOverlay" aria-hidden="true">
-    <div class="notice-modal" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-describedby="noticeDesc">
-      <button class="close" id="noticeClose" aria-label="বন্ধ করুন">
-        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-      </button>
-      <div class="notice-header">
-        <span class="notice-badge" aria-hidden="true">
-          <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          আপডেট নোটিশ
-        </span>
-        <h2 class="notice-title" id="noticeHeading">ওয়েবসাইট রক্ষণাবেক্ষণ চলছে</h2>
-      </div>
 
-      <div class="notice-body">
-        <p class="notice-text" id="noticeDesc">প্রিয় ভিজিটর, আমাদের সাইটে রক্ষণাবেক্ষণ ও উন্নয়ন কাজ চলছে। কিছু সেবা সাময়িকভাবে বন্ধ থাকতে পারে। আমরা শীঘ্রই উন্নত রূপে ফিরছি। আপনার সহযোগিতার জন্য ধন্যবাদ।</p>
-        <p class="notice-sub">যদি জরুরি সাহায্য দরকার হয়, অনুগ্রহ করে <a href="#" style="color:var(--accent-2);font-weight:700;text-decoration:none">যোগাযোগ</a> করুন।</p>
-      </div>
 
-      <div class="notice-actions">
-        <div class="left">
-          <input type="checkbox" id="dontShow" />
-          <label for="dontShow">আজকে আর দেখাবেন না</label>
-        </div>
-        <div class="right">
-          <a class="btn btn-ghost" href="#" id="learnMore">আরও জানুন</a>
-          <button class="btn btn-primary" id="gotIt">বুঝেছি</button>
-        </div>
-      </div>
 
-    </div>
-  </div>
-
-<script>
-(function(){
-  const overlay = document.getElementById('noticeOverlay');
-  const closeBtn = document.getElementById('noticeClose');
-  const gotIt = document.getElementById('gotIt');
-  const dontShow = document.getElementById('dontShow');
-  const openDemo = document.getElementById('openDemo');
-  const toast = document.getElementById('noticeToast');
-  const learnMore = document.getElementById('learnMore');
-
-  // === Settings ===
-  const MORE_LINK = '#'; // put your link here
-  learnMore.href = MORE_LINK;
-
-  // Function to open the modal
-  function open(){
-    overlay.classList.add('open');
-    overlay.removeAttribute('aria-hidden');
-    // focus management
-    closeBtn.focus();
-    document.addEventListener('keydown', onKey);
-    // click outside to close
-    overlay.addEventListener('click', onBackdrop);
-  }
-
-  // Function to close the modal
-  function close(persist){
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden','true');
-    document.removeEventListener('keydown', onKey);
-    overlay.removeEventListener('click', onBackdrop);
-    if(persist){
-      showToast('নোটিশ বন্ধ হয়েছে');
-    }
-  }
-
-  // Focus trap for modal
-  function onKey(e){
-    if(e.key === 'Escape') close(dontShow.checked);
-    // basic focus trap
-    if(e.key === 'Tab'){
-      const focusables = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      const list = Array.from(focusables).filter(el=>!el.hasAttribute('disabled'));
-      if(!list.length) return;
-      const first = list[0];
-      const last = list[list.length-1];
-      if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
-      else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
-    }
-  }
-
-  // Close modal if clicked outside
-  function onBackdrop(e){ if(e.target === overlay) close(dontShow.checked); }
-
-  // Show toast message
-  function showToast(msg){
-    toast.textContent = msg; toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 1800);
-  }
-
-  // Buttons
-  closeBtn.addEventListener('click', ()=>close(dontShow.checked));
-  gotIt.addEventListener('click', ()=>close(true));
-  openDemo.addEventListener('click', ()=>open());
-
-  // Auto open the modal every time the site loads
-  setTimeout(open, 400);
-})();
-</script>
-</body>
 </body>
 </html>	
-</body>
-</html>
