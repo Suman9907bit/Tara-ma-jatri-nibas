@@ -31,11 +31,14 @@
 
 
 <title>TARA MA </title>
-    <style> body{margin:0;
-            padding: 0;
-            width: 100%;
+    <style> body{body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  font-family: Arial, sans-serif;
+  background: #f4f6fb;
+}
 
-        display: flex;}
         .header{background: linear-gradient(135deg, black, #6E1B43);
 
           color:white;font-size: 20px;font-family:cooper black;text-align:left;
@@ -58,7 +61,7 @@ margin-left:100px;}
 
 
   padding: 0px ;
-    margin-top: 10%;
+    margin-top: 0;
 width: 100%;}
 .image{width: 100%;}
 .marquee{color:white;background:linear-gradient(135deg, red, orange);font-size: 30px;border-bottom: solid 2px #105191;}
@@ -100,7 +103,29 @@ width: 100%;}
                 border-color:none;}
             
             
+/* Hero Banner Slider */
+    .hero{margin-top:000000px;position:relative;width:100%;height:450px;overflow:hidden;}
+    .slide{
+      position:absolute;width:100%;height:100%;
+      opacity:0;transition:opacity 1s ease-in-out;
+      background-size:cover;background-position:center;
+    }
+    .slide.active{opacity:1;}
 
+    .slide.anim1.active{animation:zoomIn 5s ease-in-out;}
+    .slide.anim2.active{animation:slideLeft 27s ease-in-out;}
+    .slide.anim3.active{animation:slideright 10s ease-in-out;}
+
+    @keyframes zoomIn{from{transform:scale(1.1);}to{transform:scale(1);}}
+   @keyframes fadeIn {
+  from { opacity: 15; }
+  to { opacity: 19; }
+}
+
+    @keyframes slideUp{from{transform:translateY(100%);}to{transform:translateY(0);}}
+
+    @media(max-width:768px){.hero{height:250px;}}
+    @media(max-width:480px){.hero{height:200px;}}
 
     </style>
 </head>
@@ -133,7 +158,28 @@ width: 100%;}
 
 
 <div class="content">
-       <image src="https://lh3.googleusercontent.com/p/AF1QipPYrc1ShqqsnvVBNc_9sCvWsmfA1uWatoLqIkoU=s1360-w1360-h1020-rw" width="100%" height="auto">
+   <br><br><br><br><br>  
+<!-- Hero Banner Slider -->
+<div class="hero">
+
+<div class="slide anim1 active" style="background-image:url('https://img.freepik.com/free-photo/beautiful-luxury-outdoor-swimming-pool-hotel-resort_74190-7433.jpg');"></div>
+
+
+  <div class="slide anim2" style="background-image:url('https://resize.indiatvnews.com/en/resize/gallery/840_-/2025/01/untitled-design-2025-01-06t233910-1736186924.jpg');"></div>
+  
+
+<div class="slide anim3" style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/15/0c/63/37/casa-del-mar-langkawi.jpg?w=900&h=500&s=1');"></div>
+
+
+
+
+
+
+</div>
+
+
+
+
         <marquee class="marquee"> 🌟 স্বাগতম "তারা মা যাত্রী নিবাস" এ — আরামদায়ক ও সাশ্রয়ী হোটেল, আধুনিক সুযোগ-সুবিধা সহ। আজই রুম বুকিং করুন 📞 <a href="" style="text-decoration:none;color:white;font-family:arial;">+91-8768232563🌟</a>
  </marquee>
 <center>
@@ -337,14 +383,34 @@ width: 100%;}
 </div>
 
 
+<div>
+
+Tara ma jatri nibas<br>
+<br><br><br><br><br><br><br><br>
+
+
+</div>
+
+<!-- Footer Section -->
+<footer style="background: linear-gradient(135deg, black, #6E1B43); color: white; padding: 30px 20px; text-align: center; font-family: Arial, sans-serif;">
+  <h2 style="margin-bottom: 10px;">Tara Ma Jatri Nibas</h2>
+  <p style="margin: 5px;">📍 Location: Kalinagar, Lot No 8, Ganga Sagar, West Bengal</p>
+  <p style="margin: 5px;">📞 Phone: <a href="tel:+918768232563" style="color: #ffcccb; text-decoration: none;">+91-8768232563</a></p>
+  <p style="margin: 5px;">📧 Email: <a href="mailto:shibshankarparua3678@gmail.com" style="color: #ffcccb; text-decoration: none;">shibshankarparua3678@gmail.com</a></p>
+  
+  <!-- Social Media Links (You can replace # with actual links) -->
+  <div style="margin-top: 15px;">
+    <a href="#" target="_blank" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" width="30px" alt="Facebook"></a>
+    <a href="#" target="_blank" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733558.png" width="30px" alt="Instagram"></a>
+    <a href="#" target="_blank" style="margin: 0 10px;"><img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="30px" alt="YouTube"></a>
+  </div>
+
+  <hr style="margin: 20px auto; width: 80%; border-color: #ffffff33;">
+  <p style="font-size: 14px; color: #ccc;">&copy; 2025 Tara Ma Jatri Nibas. All rights reserved. | Designed by Mr. Suman jana (Web Expeart)</p>
+</footer>
 
 
 
-
-
-
-
-         
 <!-- Scroll to Top Button -->
 <button onclick="scrollToTop()" id="scrollBtn" title="Go to top">↑</button>
 
@@ -650,10 +716,38 @@ label{user-select:none}
 })();
 </script>
 
+<!-- Scripts -->
+<script>
+  // Hero Slider
+  const slides=document.querySelectorAll('.slide');
+  let index=0;
+  function showSlide(){
+    slides.forEach(s=>s.classList.remove('active'));
+    index=(index+1)%slides.length;
+    slides[index].classList.add('active');
+  }
+  setInterval(showSlide,5000);
+
+  // Scroll btn
+  window.onscroll=function(){document.getElementById("scrollBtn").style.display=(window.scrollY>100)?"block":"none";}
+  // Notice auto show
+  window.onload=function(){setTimeout(()=>{document.getElementById('noticeBox').classList.add('open');},800);}
+  // Toggle Mode
+  const toggleBtn=document.getElementById("toggleBtn");const body=document.body;
+  toggleBtn.addEventListener("click",()=>{body.classList.toggle("dark");
+    if(body.classList.contains("dark")){toggleBtn.innerHTML='<i class="fas fa-sun"></i>';localStorage.setItem("mode","dark");}
+    else{toggleBtn.innerHTML='<i class="fas fa-moon"></i>';localStorage.setItem("mode","light");}});
+  if(localStorage.getItem("mode")==="dark"){body.classList.add("dark");toggleBtn.innerHTML='<i class="fas fa-sun"></i>';}
+</script>
+
+
+
+
+
+         
 
 </body>
 </html> 
-
 
 
 
