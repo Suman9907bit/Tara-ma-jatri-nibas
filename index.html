@@ -127,7 +127,8 @@ width: 100%;}
     .slide.anim3.active{animation:slideright 10s ease-in-out;}
          .slide.anim4.active{animation:zoomIn 5s ease-in-out;}
     .slide.anim5.active{animation:slideLeft 27s ease-in-out;}
-    .slide.anim6.active{animation:slideright 10s ease-in-out;}
+    .slide.anim6.active{animation:slideright 10s ease-in-out; width: 100%;
+  height: 350px;}
 
     @keyframes zoomIn{from{transform:scale(1.1);}to{transform:scale(1);}}
    @keyframes fadeIn {
@@ -187,12 +188,12 @@ width: 100%;}
 
 
 <div class="slide anim5" style="background-image:url('https://lh3.googleusercontent.com/p/AF1QipO6rVkv89l3KF3K3U7_fpQZ5oIDuNk3hmKyoaAy=s680-w680-h510-rw');"></div>
+
+
 </div>
 
 
-
-
-        <marquee class="marquee"> 🌟 স্বাগতম "তারা মা যাত্রী নিবাস" এ — আরামদায়ক ও সাশ্রয়ী হোটেল, আধুনিক সুযোগ-সুবিধা সহ। আজই রুম বুকিং করুন 📞 <a href="tel:+918768232563" style="text-decoration:none;color:white;font-family:arial;">+91-8768232563🌟</a>
+        <marquee class="marquee">  <i class="fas fa-hotel"></i>  &nbsp;&nbsp;স্বাগতম "তারা মা যাত্রী নিবাস" এ — আরামদায়ক ও সাশ্রয়ী হোটেল, আধুনিক সুযোগ-সুবিধা সহ। আজই রুম বুকিং করুন 📞 <a href="tel:+918768232563" style="text-decoration:none;color:white;font-family:arial;">+91-8768232563🌟</a>
  </marquee>
 <center>
 
@@ -538,7 +539,7 @@ function scrollToTop() {
 
   <style>
     :root{
-      --bg:#ffffff; --fg:#1a1a1a; --accent:#ff6a00; --accent-2:#c40000; --overlay:rgba(0,0,0,.55);
+      --bg:teal; --fg:red; --accent:#ff6a00; --accent-2:#c40000; --overlay:rgba(0,0,0,.55);
       --radius:18px; --shadow:0 12px 35px rgba(0,0,0,.18);
     }
     *{box-sizing:border-box}
@@ -585,157 +586,7 @@ label{user-select:none}
 
   </style>
 
-<style>
-    :root{
-      --bg:#ffffff; --fg:#1a1a1a; --accent:#ff6a00; --accent-2:#c40000; --overlay:rgba(0,0,0,.55);
-      --radius:18px; --shadow:0 12px 35px rgba(0,0,0,.18);
-    }
-    *{box-sizing:border-box}
-    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans Bengali,Helvetica,Arial,"Noto Sans Bengali UI",sans-serif;background:#f6f7f9;color:var(--fg)}/* Overlay */
-.notice-overlay{position:fixed;inset:0;background:var(--overlay);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
-.notice-overlay.open{display:flex}
 
-/* Modal */
-.notice-modal{width:min(560px,100%);background:var(--bg);border-radius:var(--radius);box-shadow:var(--shadow);position:relative;overflow:hidden}
-.notice-header{display:flex;align-items:center;gap:10px;padding:16px 18px;background:linear-gradient(90deg,#fff1e6, #ffe7d1)}
-.notice-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ffd2a6;color:#b33c00;padding:6px 10px;border-radius:999px;font-weight:700;font-size:14px}
-.notice-title{margin:0;font-size:18px}
-
-.notice-body{padding:20px 18px;font-size:16px;line-height:1.6}
-.notice-text{margin:0;font-weight:600;color:#222}
-.notice-sub{margin:.4rem 0 0;color:#444;font-size:14px}
-
-.notice-actions{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:16px 18px;border-top:1px solid #eee;background:#fafafa}
-.left{display:flex;align-items:center;gap:8px}
-
-.btn{appearance:none;border:0;cursor:pointer;border-radius:12px;padding:10px 14px;font-weight:700}
-.btn-primary{background:var(--accent);color:#fff}
-.btn-primary:focus{outline:3px solid rgba(255,106,0,.35)}
-.btn-ghost{background:#fff;border:1px solid #ddd}
-
-/* Close (X) */
-.close{position:absolute;top:10px;right:10px;background:#fff;border:1px solid #eee;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;cursor:pointer}
-.close:focus{outline:3px solid rgba(196,0,0,.28)}
-
-/* Icon */
-.icon{width:22px;height:22px}
-
-/* Animations */
-@keyframes popIn{0%{transform:translateY(12px) scale(.98);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
-.notice-modal{animation:popIn .35s ease}
-@media (prefers-reduced-motion: reduce){.notice-modal{animation:none}}
-
-/* Toast (optional small bottom bar) */
-.notice-toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111;color:#fff;padding:10px 14px;border-radius:999px;font-size:14px;display:none;z-index:9998}
-.notice-toast.show{display:block}
-
-/* Checkbox */
-label{user-select:none}
-
-  </style>
-</head>
-<body><!-- Trigger (for demo/testing) --><button class="btn btn-ghost" id="openDemo" style="position:fixed;top:12px;left:12px">Open Notice (demo)</button>
-
-<!-- Toast (optional) --><div class="notice-toast" id="noticeToast" aria-live="polite"></div><!-- Overlay + Modal --><div class="notice-overlay" id="noticeOverlay" aria-hidden="true">
-  <div class="notice-modal" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-describedby="noticeDesc">
-    <button class="close" id="noticeClose" aria-label="বন্ধ করুন">
-      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
-    </button><div class="notice-header">
-  <span class="notice-badge" aria-hidden="true">
-    <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-    আপডেট নোটিশ
-  </span>
-  <h2 class="notice-title" id="noticeHeading">Wel Come to Tara Ma Jatri Nibas</h2>
-</div>
-
-<div class="notice-body">
-
-<image src="https://lh3.googleusercontent.com/p/AF1QipMg0Rgqr38qWNHONCU-Kap_odR7ZfeKc1u-H1K7=s680-w680-h510-rw" width="100%">
-
-
-  <p class="notice-text" id="noticeDesc">ভিজিটর, আমাদের সাইটে রক্ষণাবেক্ষণ ও উন্নয়ন কাজ চলছে। কিছু সেবা সাময়িকভাবে বন্ধ থাকতে পারে। আমরা শীঘ্রই উন্নত রূপে ফিরছি। আপনার সহযোগিতার জন্য ধন্যবাদ।</p>
- 
-  </div>
-</div>
-
-  </div>
-</div><script>
-(function(){
-  const overlay = document.getElementById('noticeOverlay');
-  const closeBtn = document.getElementById('noticeClose');
-  const gotIt = document.getElementById('gotIt');
-  const dontShow = document.getElementById('dontShow');
-  const openDemo = document.getElementById('openDemo');
-  const toast = document.getElementById('noticeToast');
-  const learnMore = document.getElementById('learnMore');
-
-  // === Settings ===
-  const STORAGE_KEY = 'noticeDismissedAt';
-  const DISMISS_FOR_HOURS = 24; // once per day
-  const MORE_LINK = '#'; // put your link here
-  learnMore.href = MORE_LINK;
-
-  function now(){ return Date.now(); }
-  function hoursSince(ts){ return (now() - ts) / 36e5; }
-
-  function shouldShow(){
-    try{
-      const ts = Number(localStorage.getItem(STORAGE_KEY));
-      if(!ts) return true;
-      return hoursSince(ts) >= DISMISS_FOR_HOURS;
-    }catch(e){ return true; }
-  }
-
-  function open(){
-    overlay.classList.add('open');
-    overlay.removeAttribute('aria-hidden');
-    // focus management
-    closeBtn.focus();
-    document.addEventListener('keydown', onKey);
-    // click outside to close
-    overlay.addEventListener('click', onBackdrop);
-  }
-
-  function close(persist){
-    overlay.classList.remove('open');
-    overlay.setAttribute('aria-hidden','true');
-    document.removeEventListener('keydown', onKey);
-    overlay.removeEventListener('click', onBackdrop);
-    if(persist){
-      try{ localStorage.setItem(STORAGE_KEY, String(now())); }catch(e){}
-    }
-    showToast('নোটিশ বন্ধ হয়েছে');
-  }
-
-  function onKey(e){
-    if(e.key === 'Escape') close(dontShow.checked);
-    // basic focus trap
-    if(e.key === 'Tab'){
-      const focusables = overlay.querySelectorAll('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
-      const list = Array.from(focusables).filter(el=>!el.hasAttribute('disabled'));
-      if(!list.length) return;
-      const first = list[0];
-      const last = list[list.length-1];
-      if(e.shiftKey && document.activeElement === first){ last.focus(); e.preventDefault(); }
-      else if(!e.shiftKey && document.activeElement === last){ first.focus(); e.preventDefault(); }
-    }
-  }
-
-  function onBackdrop(e){ if(e.target === overlay) close(dontShow.checked); }
-  function showToast(msg){
-    toast.textContent = msg; toast.classList.add('show');
-    setTimeout(()=>toast.classList.remove('show'), 1800);
-  }
-
-  // Buttons
-  closeBtn.addEventListener('click', ()=>close(dontShow.checked));
-  gotIt.addEventListener('click', ()=>close(true));
-  openDemo.addEventListener('click', ()=>open());
-
-  // Auto open
-  if(shouldShow()) setTimeout(open, 400);
-})();
-</script>
 
 <!-- Scripts -->
 <script>
@@ -762,14 +613,122 @@ label{user-select:none}
 </script>
 
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+  <style>
+    :root{
+      --bg:#ffffff; --fg:black; --accent:#ff6a00; --accent-2:#c40000; --overlay:rgba(0,0,0,.55);
+      --radius:18px; --shadow:0 12px 35px rgba(0,0,0,.18);
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Noto Sans Bengali,Helvetica,Arial,"Noto Sans Bengali UI",sans-serif;background:#f6f7f9;color:var(--fg)}
+
+    /* Overlay */
+    .notice-overlay{position:fixed;inset:0;background:var(--overlay);display:none;align-items:center;justify-content:center;padding:20px;z-index:9999}
+    .notice-overlay.open{display:flex}
+
+    /* Modal */
+    .notice-modal{width:min(560px,100%);background:var(--bg);border-radius:var(--radius);box-shadow:var(--shadow);position:relative;overflow:hidden;animation:popIn .35s ease}
+    .notice-header{display:flex;align-items:center;gap:10px;padding:16px 18px;background:linear-gradient(90deg,#fff1e6, #ffe7d1)}
+    .notice-badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1px solid #ffd2a6;color:#b33c00;padding:6px 10px;border-radius:999px;font-weight:700;font-size:14px}
+    .notice-title{margin:0;font-size:18px}
+
+    .notice-body{padding:20px 18px;font-size:16px;line-height:1.6}
+    .notice-text{margin:0;font-weight:600;color:#30061F}
+    .notice-sub{margin:.4rem 0 0;color:#444;font-size:14px}
+
+    /* Banner Image */
+    .notice-banner img{width:100%;height:auto;display:block}
+
+    /* Close (X) */
+    .close{position:absolute;top:10px;right:10px;background:#fff;border:1px solid #eee;width:38px;height:38px;border-radius:12px;display:grid;place-items:center;cursor:pointer}
+    .close:focus{outline:3px solid rgba(196,0,0,.28)}
+
+    /* Icon */
+    .icon{width:22px;height:22px}
+
+    /* Animations */
+    @keyframes popIn{0%{transform:translateY(12px) scale(.98);opacity:0}100%{transform:translateY(0) scale(1);opacity:1}}
+    @media (prefers-reduced-motion: reduce){.notice-modal{animation:none}}
+  </style>
+</head>
+<body>
+
+<!-- Overlay + Modal -->
+<div class="notice-overlay" id="noticeOverlay" aria-hidden="true">
+  <div class="notice-modal" role="dialog" aria-modal="true" aria-labelledby="noticeHeading" aria-describedby="noticeDesc">
+    <button class="close" id="noticeClose" aria-label="বন্ধ করুন">
+      <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+
+    <div class="notice-header">
+      <span class="notice-badge" aria-hidden="true">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        আপডেট নোটিশ
+      </span>
+      <h2 class="notice-title" id="noticeHeading"> <i class="fas fa-hotel"></i> &nbsp;Tara Ma Jatri Nibas </h2>
+    </div>
+
+    <!-- Banner Image -->
+    <div class="notice-banner">
+      <img src="https://lh3.googleusercontent.com/p/AF1QipPBdHAnEvzbXJy7De5Z1ETzmiCcNRYuGZOOmRs=w576-h240-k-no" alt="Notice Banner">
+    </div>
+
+    <div class="notice-body">
+      <p class="notice-text" id="noticeDesc">আমাদের ওয়েবসাইটে Book Now বোতাম ক্লিক করার পর আপনার বুকিং অনুরোধ পাঠানো হবে। এরপর গেস্ট হাউস মালিক আপনার সাথে ফোনে যোগাযোগ করবেন অথবা আপনি সরাসরি গেস্ট হাউস মালিককে কল করে বুকিং নিশ্চিত করতে পারবেন। মনে রাখবেন, গেস্ট হাউস মালিকের কনফার্মেশন ছাড়া বুকিং চূড়ান্ত ধরা হবে না।</p>
+      <p class="notice-sub">যদি জরুরি সাহায্য দরকার হয়, অনুগ্রহ করে <a href="tel:+918768232563" style="color:var(--accent-2);font-weight:700;text-decoration:none">যোগাযোগ</a> করুন।</p>
+
+
+<a href="https://suman9907bit.github.io/syber-information/" style="
+  display:inline-block;
+  padding:10px 20px;
+  background:red;
+  color:white;
+  text-decoration:none;
+  border-radius:8px;
+  font-weight:bold;">
+<i class="fas fa-shield-alt"></i>  Syber Info
+</a>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function(){
+  const overlay = document.getElementById('noticeOverlay');
+  const closeBtn = document.getElementById('noticeClose');
+
+  function open(){
+    overlay.classList.add('open');
+    overlay.removeAttribute('aria-hidden');
+    closeBtn.focus();
+    document.addEventListener('keydown', onKey);
+    overlay.addEventListener('click', onBackdrop);
+  }
+
+  function close(){
+    overlay.classList.remove('open');
+    overlay.setAttribute('aria-hidden','true');
+    document.removeEventListener('keydown', onKey);
+    overlay.removeEventListener('click', onBackdrop);
+  }
+
+  function onKey(e){ if(e.key === 'Escape') close(); }
+  function onBackdrop(e){ if(e.target === overlay) close(); }
+
+  closeBtn.addEventListener('click', close);
+
+  // Always show on every reload
+  window.onload = function(){ setTimeout(open, 400); }
+})();
+</script>
 
 
          
 
 </body>
 </html> 
-
 
 
 
